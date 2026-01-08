@@ -1,0 +1,1 @@
+Project Work universitario incentrato sullo sviluppo di uno strumento digitale per la valutazione del rischio in ambito di sicurezza sul lavoro, basato sul modello di Probabilità x Danno (P X D), realizzato con HTML, CSS e Javascript.
