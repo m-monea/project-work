@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Guida al calcolo del fattore di rischio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guida operativa per il calcolo del fattore di rischio in ambito di sicurezza aziendale.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Guida al calcolo del fattore di rischio</h1>
+            <p class="subtitle">Strumento di supporto alla sicurezza aziendale</p>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <section class="intro">
+                <h2>Descrizione dello strumento</h2>
+                <p>
+                    Questa pagina mette a disposizione una guida operativa dedicata al calcolo del fattore di rischio
+                    in ambito di sicurezza aziendale. Il documento illustra in modo chiaro e strutturato le principali
+                    fasi del processo di valutazione del rischio, con riferimenti alla normativa vigente e esempi applicativi.
+                </p>
+                <p>
+                    La guida è pensata come supporto per responsabili della sicurezza, consulenti e figure coinvolte
+                    nella gestione della salute e sicurezza nei luoghi di lavoro.
+                </p>
+            </section>
+
+            <!-- CALCOLATORE PROBABILITÀ E DANNO -->
+            <section class="pd-tool">
+                <h2>Stima di Probabilità (P) e Danno (D)</h2>
+
+                <p>Rispondi alle domande per stimare i valori di Probabilità (P) e Danno (D).</p>
+
+                <form id="pd-form" class="pd-form">
+
+                    <h3>Probabilità (P)</h3>
+
+                    <label for="p1">Frequenza di esposizione</label>
+                    <select id="p1" name="p1">
+                        <option value="1">Rara</option>
+                        <option value="2">Occasionale</option>
+                        <option value="3">Frequente</option>
+                        <option value="4">Continua</option>
+                    </select>
+
+                    <label for="p2">Numero di persone esposte</label>
+                    <select id="p2" name="p2">
+                        <option value="1">Una persona</option>
+                        <option value="2">Poche persone</option>
+                        <option value="3">Molte persone</option>
+                        <option value="4">Quasi tutti</option>
+                    </select>
+
+                    <label for="p3">Misure di prevenzione</label>
+                    <select id="p3" name="p3">
+                        <option value="1">Elevate e funzionanti</option>
+                        <option value="2">Buone</option>
+                        <option value="3">Parziali</option>
+                        <option value="4">Assenti o inefficaci</option>
+                    </select>
+
+                    <label for="p4">Eventi simili già accaduti</label>
+                    <select id="p4" name="p4">
+                        <option value="1">Mai</option>
+                        <option value="2">Raramente</option>
+                        <option value="3">Qualche volta</option>
+                        <option value="4">Spesso</option>
+                    </select>
+
+                    <h3>Danno (D)</h3>
+
+                    <label for="d1">Gravità della lesione potenziale</label>
+                    <select id="d1" name="d1">
+                        <option value="1">Lieve</option>
+                        <option value="2">Moderata</option>
+                        <option value="3">Grave</option>
+                        <option value="4">Mortale</option>
+                    </select>
+
+                    <label for="d2">Reversibilità del danno</label>
+                    <select id="d2" name="d2">
+                        <option value="1">Completamente reversibile</option>
+                        <option value="2">Recupero parziale</option>
+                        <option value="3">Sequele permanenti</option>
+                        <option value="4">Irreversibile</option>
+                    </select>
+
+                    <label for="d3">Necessità di cure/interventi</label>
+                    <select id="d3" name="d3">
+                        <option value="1">Nessuna</option>
+                        <option value="2">Ambulatoriali</option>
+                        <option value="3">Ospedaliere</option>
+                        <option value="4">Intensive</option>
+                    </select>
+
+                    <label for="d4">Durata degli effetti</label>
+                    <select id="d4" name="d4">
+                        <option value="1">Temporanei</option>
+                        <option value="2">Medio termine</option>
+                        <option value="3">Lungo termine</option>
+                        <option value="4">Permanenti</option>
+                    </select>
+
+                    <button type="submit" class="primary-button">
+                        Calcola P e D
+                    </button>
+
+                </form>
+
+                <div id="pd-output" class="risk-output"></div>
+            </section>
+
+            <!-- CALCOLATORE DI RISCHIO -->
+            <section class="risk-tool">
+                <h2>Calcola il livello di rischio</h2>
+                <p>
+                    Inserisci i valori di <strong>Probabilità (P)</strong> e <strong>Danno (D)</strong> secondo la
+                    matrice di rischio P × D (scala 1–4). Il sistema restituirà il livello di rischio:
+                    <strong>basso</strong>, <strong>medio</strong> o <strong>alto</strong>.
+                </p>
+
+                <form id="risk-form" class="risk-form">
+                    <div class="form-row">
+                        <label for="probabilita">Probabilità (P)</label>
+                        <select id="probabilita" name="probabilita" required>
+                            <option value="">Seleziona…</option>
+                            <option value="1">1 - Molto bassa</option>
+                            <option value="2">2 - Bassa</option>
+                            <option value="3">3 - Alta</option>
+                            <option value="4">4 - Molto alta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="danno">Danno (D)</label>
+                        <select id="danno" name="danno" required>
+                            <option value="">Seleziona…</option>
+                            <option value="1">1 - Lieve</option>
+                            <option value="2">2 - Medio</option>
+                            <option value="3">3 - Grave</option>
+                            <option value="4">4 - Gravissimo</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Calcola livello di rischio
+                    </button>
+                </form>
+
+                <div id="risk-output" class="risk-output" aria-live="polite"></div>
+            </section>
+
+            <section class="download-section">
+                <h2>Download della guida</h2>
+                <p>
+                    Cliccando sul pulsante seguente è possibile scaricare la guida in formato PDF e consultarla
+                    anche offline.
+                </p>
+
+               <a class="download-button" href="Guida_calcolo_fattore_rischio_Monea.pdf" target="_blank">
+                Scarica la guida in PDF 
+            </a>
+
+                <p class="note">
+                    Nota: il file PDF contiene la descrizione dettagliata delle fasi di calcolo del fattore di rischio,
+                    le definizioni dei parametri utilizzati e alcuni esempi di applicazione pratica.
+                </p>
+            </section>
+
+            <section class="details">
+                <h2>Contenuti principali della guida</h2>
+                <ul>
+                    <li>Introduzione alla valutazione del rischio in ambito aziendale</li>
+                    <li>Definizione del fattore di rischio e dei parametri coinvolti</li>
+                    <li>Fasi del processo di valutazione del rischio</li>
+                    <li>Esempi applicativi e indicazioni operative</li>
+                    <li>Riferimenti normativi di base</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Elaborato di: Maria Antonietta Monea</p>
+            <p>Corso di laurea in Informatica per le Aziende Digitali (L-31)</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT: calcolo P/D -->
+    <script>
+    (function () {
+        const form = document.getElementById('pd-form');
+        const out = document.getElementById('pd-output');
+
+        if (!form || !out) return;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            let pSum = 0;
+            let dSum = 0;
+
+            for (let i = 1; i <= 4; i++) {
+                pSum += parseInt(formData.get('p' + i), 10);
+                dSum += parseInt(formData.get('d' + i), 10);
+            }
+
+            const P = Math.round(pSum / 4);
+            const D = Math.round(dSum / 4);
+
+            out.innerHTML = `
+                <p>Probabilità stimata P = <strong>${P}</strong></p>
+                <p>Danno stimato D = <strong>${D}</strong></p>
+                <p>Inserisci questi valori nel calcolatore del rischio (sezione sottostante).</p>
+            `;
+        });
+    })();
+    </script>
+
+    <!-- SCRIPT: calcolo livello di rischio -->
+    <script>
+        (function () {
+            const form = document.getElementById('risk-form');
+            const output = document.getElementById('risk-output');
+
+            if (!form || !output) return;
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const pValue = parseInt(document.getElementById('probabilita').value, 10);
+                const dValue = parseInt(document.getElementById('danno').value, 10);
+
+                if (isNaN(pValue) || isNaN(dValue)) {
+                    output.innerHTML = '<p>Seleziona sia la probabilità che il danno.</p>';
+                    return;
+                }
+
+                const r = pValue * dValue;
+                let livello = '';
+                let badgeClass = '';
+
+                if (r <= 4) {
+                    livello = 'BASSO';
+                    badgeClass = 'risk-low';
+                } else if (r <= 8) {
+                    livello = 'MEDIO';
+                    badgeClass = 'risk-medium';
+                } else {
+                    livello = 'ALTO';
+                    badgeClass = 'risk-high';
+                }
+
+                output.innerHTML = `
+                    <p>Indice di rischio R = P × D = <strong>${r}</strong></p>
+                    <p>Livello di rischio: 
+                        <span class="risk-badge ${badgeClass}">${livello}</span>
+                    </p>
+                `;
+            });
+        })();
+    </script>
+</body>
+</html>
